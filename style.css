@@ -20,6 +20,13 @@
   --transition: 250ms ease-in-out;
 }
 
+@font-face {
+    font-family: F16;
+    src: url("../Portfolio/F16_Panel Font.ttf") format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
 html,
 body {
   overflow-x: hidden;
