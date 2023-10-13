@@ -40,7 +40,7 @@ body,
 input,
 textarea,
 button {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "garamond", sans-serif;
 }
 
 body {
@@ -409,10 +409,13 @@ h1 > span {
 }
 
 .skills__wrapper {
-  display: grid;
+/*  display: grid;*/
   grid-template-columns: 1fr;
   gap: 24px;
   padding-block: 40px;
+/*  width: 100%;*/
+  display: flex;
+  justify-content: space-between;
 }
 
 .skills__item {
@@ -435,6 +438,16 @@ h1 > span {
   bottom: 0;
   left: 50%;
   translate: 0 50%;
+}
+
+.intermediate{
+  width: 50%;
+  float: left;
+}
+
+.fluent{
+  width: +50%;
+  float: right;
 }
 
 @media (min-width: 37.5em) {
@@ -466,6 +479,10 @@ h1 > span {
     left: 100%;
   }
 }
+
+
+/*Updated Skills*/
+
 
 /* PROJECTS */
 
