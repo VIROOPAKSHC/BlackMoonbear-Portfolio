@@ -1,647 +1,1265 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-   
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./assets/images/favicon-32x32.png"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <title>ML/AI Programmer | Portfolio</title>
-  </head>
-  <body>
-    <header class="header">
-      <h2 class="visually-hidden">Header</h2>
-      <div class="wrapper">
-        <nav class="header__nav">
-          <h2 class="visually-hidden">Navigation</h2>
-          <a href="" class="header__home">
-            Viroopaksh Chekuri
-            <span class="visually-hidden">(to home page)</span>
-          </a>
-          <a href="https://github.com/VIROOPAKSHC" class="header__social">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="25"
-              height="24"
-              aria-labelledby="socialGitHub"
-              role="img"
-            >
-              <title id="socialGitHub">GitHub</title>
-              <path
-                fill="#FFF"
-                fill-rule="evenodd"
-                d="M12.304 0C5.506 0 0 5.506 0 12.304c0 5.444 3.522 10.042 8.413 11.672.615.108.845-.261.845-.584 0-.292-.015-1.261-.015-2.291-3.091.569-3.891-.754-4.137-1.446-.138-.354-.738-1.446-1.261-1.738-.43-.23-1.046-.8-.016-.815.97-.015 1.661.892 1.892 1.261 1.107 1.86 2.876 1.338 3.584 1.015.107-.8.43-1.338.784-1.646-2.738-.307-5.598-1.368-5.598-6.074 0-1.338.477-2.446 1.26-3.307-.122-.308-.553-1.569.124-3.26 0 0 1.03-.323 3.383 1.26.985-.276 2.03-.415 3.076-.415 1.046 0 2.092.139 3.076.416 2.353-1.6 3.384-1.261 3.384-1.261.676 1.691.246 2.952.123 3.26.784.861 1.26 1.953 1.26 3.307 0 4.721-2.875 5.767-5.613 6.074.446.385.83 1.123.83 2.277 0 1.645-.015 2.968-.015 3.383 0 .323.231.708.846.584a12.324 12.324 0 0 0 8.382-11.672C24.607 5.506 19.101 0 12.304 0Z"
-              />
-            </svg>
-          </a>
-          
-          <a href="https://www.linkedin.com/in/viroopaksh-chekuri-9997301a7/" class="header__social">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="25"
-              height="24"
-              aria-labelledby="socialLinkedIn"
-              role="img"
-            >
-              <title id="socialLinkedIn">LinkedIn</title>
-              <path
-                fill="#FFF"
-                fill-rule="evenodd"
-                d="M5.551 3.304c-1.14 0-2.067.926-2.067 2.064 0 1.14.928 2.066 2.067 2.066a2.066 2.066 0 0 0 0-4.13ZM3.767 8.998v11.453h3.562L7.33 8.998H3.767Zm5.798 0V20.45l3.554.002.002-5.668c0-1.454.253-2.941 2.132-2.941 1.851 0 1.851 1.755 1.851 3.036v5.571l3.559-.001v-6.28c0-2.834-.517-5.457-4.27-5.457-1.763 0-2.916.997-3.368 1.85h-.05V8.997h-3.41ZM22.435 24H1.982c-.976 0-1.77-.777-1.77-1.732V1.731C.212.776 1.006 0 1.982 0h20.453c.98 0 1.777.776 1.777 1.73v20.538c0 .955-.797 1.732-1.777 1.732Z"
-              />
-            </svg>
-          </a>
-          
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viroopaksh Chekuri | ML/AI Engineer</title>
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #141414;
+            --bg-card: #1a1a1a;
+            --accent-primary: #4ade80;
+            --accent-secondary: #22c55e;
+            --text-primary: #ffffff;
+            --text-secondary: #a3a3a3;
+            --text-muted: #737373;
+            --border-color: #262626;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.03;
+            background: 
+                radial-gradient(circle at 20% 50%, var(--accent-primary) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, var(--accent-secondary) 0%, transparent 50%);
+            animation: bgShift 15s ease infinite;
+        }
+
+        @keyframes bgShift {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(50px, 30px) scale(1.1); }
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 100;
+            padding: 1.5rem 0;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-primary);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icons a {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            border-color: var(--accent-primary);
+            transform: translateY(-2px);
+        }
+
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--text-primary), var(--text-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content .highlight {
+            color: var(--accent-primary);
+            display: block;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            transition: var(--transition);
+        }
+
+        .stat-item:hover {
+            border-color: var(--accent-primary);
+            transform: translateY(-4px);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--accent-primary);
+            color: var(--bg-primary);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(74, 222, 128, 0.3);
+        }
+
+        .btn-secondary {
+            border: 1px solid var(--accent-primary);
+            color: var(--accent-primary);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(74, 222, 128, 0.1);
+        }
+
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--accent-primary);
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+
+        .experience-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .experience-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent-primary);
+            transform: scaleY(0);
+            transition: var(--transition);
+        }
+
+        .experience-card:hover {
+            border-color: var(--accent-primary);
+            transform: translateX(8px);
+        }
+
+        .experience-card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-title {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-company {
+            color: var(--accent-primary);
+            font-weight: 600;
+        }
+
+        .experience-tagline {
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 1rem;
+            padding: 0.75rem;
+            background: rgba(74, 222, 128, 0.05);
+            border-left: 3px solid var(--accent-primary);
+            border-radius: 4px;
+        }
+
+        .experience-date {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .experience-card ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .experience-card li {
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .experience-card li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent-primary);
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .tech-tag {
+            background: rgba(74, 222, 128, 0.1);
+            color: var(--accent-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(74, 222, 128, 0.2);
+            transition: var(--transition);
+        }
+
+        .tech-tag:hover {
+            background: rgba(74, 222, 128, 0.2);
+            transform: scale(1.05);
+        }
+
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .category-tab {
+            padding: 0.75rem 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 25px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+
+        .category-tab:hover {
+            border-color: var(--accent-primary);
+            color: var(--accent-primary);
+        }
+
+        .category-tab.active {
+            background: var(--accent-primary);
+            color: var(--bg-primary);
+            border-color: var(--accent-primary);
+        }
+
+        .project-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: var(--transition);
+            display: none;
+        }
+
+        .project-item.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .project-item:hover {
+            border-color: var(--accent-primary);
+            transform: translateY(-4px);
+        }
+
+        .project-header {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 2rem;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-info h3 {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, rgba(74, 222, 128, 0.2), rgba(34, 197, 94, 0.1));
+            border: 1px solid rgba(74, 222, 128, 0.3);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            flex-shrink: 0;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .project-link {
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .project-link:hover {
+            color: var(--accent-secondary);
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: var(--transition);
+        }
+
+        .skill-category:hover {
+            border-color: var(--accent-primary);
+            transform: translateY(-4px);
+        }
+
+        .skill-category h3 {
+            color: var(--accent-primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .skill-tag {
+            background: rgba(74, 222, 128, 0.1);
+            color: var(--accent-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(74, 222, 128, 0.2);
+            transition: var(--transition);
+        }
+
+        .skill-tag:hover {
+            background: rgba(74, 222, 128, 0.2);
+            transform: scale(1.05);
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-content p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            border-radius: 12px;
+            transition: var(--transition);
+        }
+
+        .contact-item:hover {
+            border-color: var(--accent-primary);
+        }
+
+        .contact-item a {
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 3rem 1rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .project-header {
+                grid-template-columns: 1fr;
+            }
+
+            .project-icon {
+                margin: 0 auto;
+            }
+
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+
+    <header>
+        <nav>
+            <div class="logo">Viroopaksh Chekuri</div>
+            <div class="nav-links">
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="social-icons">
+                <a href="https://github.com/VIROOPAKSHC" target="_blank">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/viroopaksh-chekuri-9997301a7/" target="_blank">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                </a>
+            </div>
         </nav>
-      </div>
     </header>
 
-    <main id="main">
-      <section class="hero">
-        <br>
-        <br>
-        <br>
-        <div class="wrapper hero__wrapper bottom-border">
-          <div class="hero__content">
-            <picture>
-              <source
-                media="(min-width: 62.5em)"
-                srcset="./assets/images/thumbnail-profile-image.jpg"
-              />
-              <source
-                media="(min-width: 37.5em)"
-                srcset="./assets/images/thumbnail-profile-image.jpg"
-              />
-              <img
-                class="hero__image"
-                src="./assets/images/thumbnail-profile-image.jpg"
-                alt="picture of Viroopaksh Chekuri"
-                width-="174"
-                height="383"
-              />
-            </picture>
-            <img
-              class="hero__rings"
-              src="./assets/images/pattern-rings.svg"
-              alt=""
-              width="530"
-              height="129"
-            />
-            <img
-              class="hero__circle"
-              src="./assets/images/pattern-circle.svg"
-              alt=""
-              width="129"
-              height="129"
-            />
-            <div class="hero__text">
-              <h1 class="hero__headline header-xl">
-                Nice to<br>
-                meet you! I'm <span>Chekuri Viroopaksh</span>.
-              </h1>
-              <p class="hero__description">
-                Deep Learning and Artificial Intelligence Enthusiast | MS CS UC San Diego | BTech MME IIT Madras | BS in Data Science and Applications IIT Madras
-              </p>
-              <a href="#contact" class="hero__contact underline">Contact me</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="skills">
-          <br>
-          <h2 class="projects__headline header-xl" style="text-align: center;"> Skills</h2>
-        
-        
-        <div class="wrapper skills__wrapper bottom-border ">
-         
-
-         <div class="skills__category fluent" style="align-items: center;">
-            <h3 class="skills__title" style="text-align: center;">Fluent</h3>
-            <div class="skills__item">
-              <h4 class="skills__title">ML Algorithms</h4>
-              <p class="skills__description">Sklearn, Numpy, Pandas, Seaborn and Matplotlib</p>
-          </div>
-        
-          <div class="skills__item">
-            <h4 class="skills__title">Python</h4>
-            <p class="skills__description">Web Scraping, Web Development, ML and Programming</p>
-        </div>
-
-            <div class="skills__item">
-              <h4 class="skills__title">Software Engineering and Testing</h4>
-              <p class="skills__description">SE Practices and JAM Stack</p>
-          </div>
-            
-            
-            <div class="skills__item">
-            <h4 class="skills__title">JAM Stack</h3>
-            <p class="skills__description">Vue.js, API and Markup</p>
-          </div>
-
-          <div class="skills__item">
-            <h4 class="skills__title">C/C++</h3>
-            <p class="skills__description">Programming and Problem Solving</p>
-          </div>
-
-          <div class="skills__item">
-            <h4 class="skills__title">Data Structures and Algorithms</h4>
-            <p class="skills__description">C++ and STL</p>
-        </div>
-
-          <div class="skills__item">
-            <h4 class="skills__title">Databases</h3>
-            <p class="skills__description">PostgreSQL, DB Design and Management</p>
-          </div>
-
-        </div>
-
-        <div class="skills__category intermediate" style="align-items: center;">
-            <h3 class="skills__title" style="text-align: center;">Intermediate</h3>
-            <div class="skills__item">
-              <h4 class="skills__title">Deep Reinforcement Learning</h4>
-              <p class="skills__description">Q-learning, Actor-Critic, Stable Baselines and Gymnasium</p>
-          </div>
-          
-            <div class="skills__item">
-                <h4 class="skills__title">CNN, RNN and GAN</h4>
-                <p class="skills__description">Tensorflow and PyTorch</p>
-            </div>
-
-            <div class="skills__item">
-                <h4 class="skills__title">AI Search Methods</h4>
-                <p class="skills__description">Path-Finding, Search and Game Theory algorithms</p>
-            </div>
-
-            <div class="skills__item">
-                <h4 class="skills__title">Linux</h4>
-                <p class="skills__description">Bash, Sed and Awk</p>
-            </div>
-            <div class="skills__item">
-                <h4 class="skills__title">Java</h4>
-                <p class="skills__description">Programming</p>
-            </div>
-
-          <div class="skills__item">
-            <h4 class="skills__title">Business Analytics</h4>
-            <p class="skills__description">Python and Excel</p>
-          </div>
-
-            <!-- Add more "Intermediate" skills -->
-        </div>
-
-        </div>
-        <img
-          class="skills__rings"
-          src="./assets/images/pattern-rings.svg"
-          alt=""
-          width="530"
-          height="129"
-        />
-      </section>
-
-      <section class="Experience">
-          
-          <div class="wrapper projects__wrapper">
-            <h2 class="projects__headline header-xl" style="text-align: center;">Experience</h2>
-            <br>
-            <div class="projects__item">
-              
-              <h3 class="skills__title">Research Internship at IIT Madras</h3>
-              <p class="skills__description">(May 2023 - Dec 2023)</p>
-              <br>
-              <p class="skills__description"> Working as a Research Intern under Prof. Ramanathan M in IIT Madras.</p>
-              <ul class="skills__description">
-                <li>Currently serving as an intern at IIT Madras, where I collaborate on a research project under the guidance of Professor Ramanathan M in the Engineering Design Department.</li>
-                <li>My work revolves around leveraging cutting-edge technologies, including TensorFlow, CompIAM, essentia, librosa, and various Python libraries, to analyze and extract critical features from Carnatic music performances.</li>
-                <li>Specifically, I focus on identifying Raaga, tala, and other elements in Carnatic music concerts, as well as delving into the intricacies of extracting multiple strokes from mridangam music inputs.</li>
-                
-              </ul>
-              <br>
-              <p class="projects__tags">
-                <span>Python</span>
-                <span>Essentia</span>
-                <span>Neural Networks</span>
-                <span>Scikit-Learn</span>
-              </p>
-              
-              </div>
-          <br>
-          <br>  
-        <div class="projects__item">
-          <h3 class="skills__title">Summer NLP Internship at Willings Inc.</h3>
-          <p class="skills__description">(May 2022 - July 2022)</p>
-          <br>
-          <p class="skills__description"> Worked as an intern in an NLP team to build a resume classification model using Python and NLP.</p>
-          <ul class="skills__description">
-            <li>During the summer of 2022, I had the privilege of interning remotely at Willings Inc. as a vital team member of the NLP (Natural Language Processing) team.</li>
-            <li>In this role, I actively contributed to the development of an NLP model, specialized in the extraction and classification of text within resumes.</li>
-            <li>My responsibilities included the proficient use of Spacy, Pyresparser, and sklearn libraries, enabling the model to extract and categorize textual information accurately.</li>
-            <li>Moreover, I participated in a challenging Machine Learning Competition organized by American Express (AMEX Prediction), further enriching my experience in the field of AI and machine learning.</li>
-              </ul>
-              <br>
-          <p class="projects__tags">
-            <span>Python</span>
-            <span>Spacy</span>
-            <span>Scikit-Learn</span>
-            <span>NLP</span>
-          </p>
-        </div>
-          </div>
-        
-
-      </section>
-
-      <section class="projects">
-        <div class="wrapper projects__wrapper">
-          <div class="projects__grid">
-            <h2 class="projects__headline header-xl">Projects</h2>
-            <a href="#contact" class="projects__contact underline">Contact me</a>
-            
-            <div class="projects__item">
-              <picture class="projects__picture">
-                <source
-                  media="(min-width: 62.5em)"
-                  srcset="./assets/images/thumbnail-LearningSnakeGamePlay.png"
-                />
-                <img
-                  class="projects__image"
-                  src="./assets/images/thumbnail-LearningSnakeGamePlay.png"
-                  alt="Screenshot of the RL agent learning to play the Snake Game"
-                  width-="343"
-                  height="253"
-                />
-              </picture>
-              <h3 class="projects__name">LearningSnake - Snake Game AI with Deep Reinforcemnt Learning</h3>
-              <p class="projects__tags">
-                <span>Torch</span>
-                <span>Numpy</span>
-                <span>Matplotlib</span>
-                <span>Deep Q-Learning</span>
-              </p>
-              <div class="projects__links">
-                <a href="https://github.com/VIROOPAKSHC/Skill-projects/tree/main/Learning-Snake#readme" class="underline">View Project</a>
-                <a href="https://github.com/VIROOPAKSHC/Skill-projects/tree/main/Learning-Snake" class="underline">View Code</a>
-              </div>
-            </div>
-
-            <div class="projects__item">
-              <picture class="projects__picture">
-                <source
-                  media="(min-width: 62.5em)"
-                  srcset="./assets/images/thumbnail-streamboard.png"
-                />
-                <img
-                  class="projects__image"
-                  src="./assets/images/thumbnail-streamboard.png"
-                  alt="screenshot of the streamlit data visualization dashboard"
-                  width-="343"
-                  height="253"
-                />
-              </picture>
-              <h3 class="projects__name">Streamboard - Data Visualization website using Streamlit</h3>
-              <p class="projects__tags">
-                <span>Streamlit</span>
-                <span>Pandas</span>
-                <span>XGBoost</span>
-                <span>Seaborn</span>
-              </p>
-              <div class="projects__links">
-                <a href="https://blackmoonbear-streamboard.streamlit.app/" class="underline">View Project</a>
-                <a href="https://github.com/VIROOPAKSHC/StreamBoard/" class="underline">View Code</a>
-              </div>
-            </div>
-            
-            <div class="projects__item">
-              <picture class="projects__picture">
-                <source
-                  media="(min-width: 62.5em)"
-                  srcset="./assets/images/thumbnail-to-do-list.png"
-                />
-                <img
-                  class="projects__image"
-                  src="./assets/images/thumbnail-to-do-list.png"
-                  alt="screenshot of the streamlit based to do list web app"
-                  width-="343"
-                  height="253"
-                />
-              </picture>
-              <h3 class="projects__name">To-Do-Stream - A Web based to-do list application created using streamlit</h3>
-              <p class="projects__tags">
-                <span>Streamlit</span>
-                <span>Sqlite3</span>
-              </p>
-              <div class="projects__links">
-                <a href="https://github.com/VIROOPAKSHC/To-Do-Stream/blob/main/README.md" class="underline">View Project</a>
-                <a href="https://github.com/VIROOPAKSHC/To-Do-Stream/" class="underline">View Code</a>
-              </div>
-            </div>
-
-            <div class="projects__item">
-              <picture class="projects__picture">
-                <source
-                  media="(min-width: 62.5em)"
-                  srcset="./assets/images/thumbnail-calc-extension.png"
-                />
-                <img
-                  class="projects__image"
-                  src="./assets/images/thumbnail-calc-extension.png"
-                  alt="screenshot of design of calculator browser extension"
-                  width-="343"
-                  height="253"
-                />
-              </picture>
-              <h3 class="projects__name">Calculator Extension</h3>
-              <p class="projects__tags">
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>JS</span>
-              </p>
-              <div class="projects__links">
-                <a href="https://github.com/VIROOPAKSHC/Calculator-Extension/blob/main/README.md" class="underline">View Project</a>
-                <a href="https://github.com/VIROOPAKSHC/Calculator-Extension" class="underline">View Code</a>
-              </div>
-            </div>
-
-            <div class="projects__item">
-              <picture class="projects__picture">
-                <source
-                  media="(min-width: 62.5em)"
-                  srcset="./assets/images/thumbnail-gameoflife.jpg"
-                />
-                <img
-                  class="projects__image"
-                  src="./assets/images/thumbnail-gameoflife.jpg"
-                  alt="screenshot of conway's game of life project"
-                  width-="343"
-                  height="253"
-                />
-              </picture>
-              <h3 class="projects__name">Conway's Game Of Life</h3>
-              <p class="projects__tags">
-                <span>Python</span>
-                <span>PyGame</span>
-              </p>
-              <div class="projects__links">
-                <a href="https://github.com/VIROOPAKSHC/GameOfLife#readme" class="underline">View Project</a>
-                <a href="https://github.com/VIROOPAKSHC/GameOfLife/blob/main/GameOfLife/main.py" class="underline">View Code</a>
-              </div>
-            </div>
-
-            <div class="projects__item">
-              <picture class="projects__picture">
-                <source
-                  media="(min-width: 62.5em)"
-                  srcset="./assets/images/thumbnail-placement-gyaan.jpg"
-                />
-                <img
-                  class="projects__image"
-                  src="./assets/images/thumbnail-placement-gyaan.jpg"
-                  alt="screenshot of Placement-Gyaan Portal"
-                  width-="343"
-                  height="253"
-                />
-              </picture>
-              <h3 class="projects__name">Placement-Gyaan</h3>
-              <p class="projects__tags">
-                <span>Python-Flask</span>
-                <span>Sockets</span>
-                <span>YAML</span>
-                <span>API</span>
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>JavaScript</span>
-              </p>
-              <div class="projects__links">
-                <a href="" class="underline">View Project</a>
-                <a href="https://github.com/VIROOPAKSHC/placement-gyaan" class="underline">View Code</a>
-              </div>
-            </div>
-
-            <div class="projects__item">
-              <picture class="projects__picture">
-                <source
-                  media="(min-width: 62.5em)"
-                  srcset="./assets/images/thumbnail-Optical-Analysis.jpg"
-                />
-                <img
-                  class="projects__image"
-                  src="./assets/images/thumbnail-Optical-Analysis.jpg"
-                  alt="screenshot of Jupyter Notebook of Optical Analysis Project"
-                  width-="343"
-                  height="253"
-                />
-              </picture>
-              <h3 class="projects__name">Opticals Data Analysis</h3>
-              <p class="projects__tags">
-                <span>Jupyter</span>
-                <span>Data Analysis</span>
-                <span>Python</span>
-              </p>
-              <div class="projects__links">
-                <a href="https://github.com/VIROOPAKSHC/Opticals_Data_Analysis#readme" class="underline">View Project</a>
-                <a href="https://github.com/VIROOPAKSHC/Opticals_Data_Analysis" class="underline">View Code</a>
-              </div>
-            </div>
-
-            <div class="projects__item">
-              <picture class="projects__picture">
-                <source
-                  media="(min-width: 62.5em)"
-                  srcset="./assets/images/thumbnail-flash-cards.jpg"
-                />
-                <img
-                  class="projects__image"
-                  src="./assets/images/thumbnail-flash-cards.jpg"
-                  alt="screenshot of Flash Card Project"
-                  width-="343"
-                  height="253"
-                />
-              </picture>
-              <h3 class="projects__name">Flask Flash Cards</h3>
-              <p class="projects__tags">
-                <span>Python-Flask</span>
-                <span>Vue.Js</span>
-                <span>Celery</span>
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>JavaScript</span>
-                <span>YAML</span>
-              </p>
-              <div class="projects__links">
-                <a href="https://github.com/VIROOPAKSHC/Flash-Card-Project#readme" class="underline">View Project</a>
-                <a href="https://github.com/VIROOPAKSHC/Flash-Card-Project" class="underline">View Code</a>
-              </div>
-            </div>
-
-            <div class="projects__item">
-              <picture class="projects__picture">
-                <source
-                  media="(min-width: 62.5em)"
-                  srcset="./assets/images/thumbnail-virtual-assistant.png"
-                />
-                <img
-                  class="projects__image"
-                  src="./assets/images/thumbnail-virtual-assistant.png"
-                  alt="screenshot of Virtual Assistant Icon"
-                  width-="343"
-                  height="253"
-                />
-              </picture>
-              <h3 class="projects__name">Virtual Assistant</h3>
-              <p class="projects__tags">
-                <span>Python</span>
-                <span>Speech Recognition</span>
-                <span>Web Browser</span>
-              </p>
-              <div class="projects__links">
-                <a href="https://github.com/VIROOPAKSHC/VirtualAssistant#readme" class="underline">View Project</a>
-                <a href="https://github.com/VIROOPAKSHC/VirtualAssistant" class="underline">View Code</a>
-              </div>
-            </div>
-
-
-        </div>
-      </section>
-      <section class="projects">
-        <div class="wrapper projects__wrapper">
-          <div class="projects__grid">
-            <h2 class="projects__headline header-xl">About Me</h2>
-            <p class="skills__description">
-                I am a technology enthusiast. I have worked on more than 45 courses over the last few years through different MOOCs such as Coursera, Udemy and NPTEL to develop my skills. I have listed them in my LinkedIn profile as a depiction for my interest and nature to work hard. I have been always interested and driven by technology to improve myself. Being an undergraduate from IITM, am also pursuing a B.Sc. degree in Data Science and Programming through online mode from IITM. I constantly learn and build. 
-              </p>
-          </div>
-        </div>
-      </section>
-      <section id="contact" class="contact bg-less-dark">
-        <div class="wrapper contact__wrapper bottom-border">
-          <div class="contact__text">
-            <h2 class="contact__headline header-xl">Contact</h2>
-            <p class="contact__description">
-              I would love to hear about your projects and how I could help.
-              Please send me a message and I shall reply as soon as possible.
+    <section class="hero">
+        <div class="hero-content">
+            <h1>
+                ML/AI Engineer & <span class="highlight">Researcher</span>
+            </h1>
+            <p>
+                Master's student in Computer Science at UC San Diego, specializing in Artificial Intelligence. 
+                Experienced in building scalable ML systems, RAG pipelines, and deploying production-ready AI solutions.
             </p>
-          </div>
-          <form action="" class="contact__form">
-            <div class="contact__control">
-              <label for="name" class="visually-hidden">Name</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                placeholder="Name"
-                required
-              />
-              <img
-                src="./assets/images/icon-invalid.svg"
-                alt=""
-                class="contact__invalid-icon"
-                width="24"
-                height="24"
-              />
+            <div class="cta-buttons">
+                <a href="#contact" class="btn-primary">Get In Touch</a>
+                <a href="https://github.com/VIROOPAKSHC" class="btn-secondary">View GitHub</a>
             </div>
-            <div class="contact__control">
-              <label for="email" class="visually-hidden">Email</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="Email"
-                required
-              />
-              <img
-                src="./assets/images/icon-invalid.svg"
-                alt=""
-                class="contact__invalid-icon"
-                width="24"
-                height="24"
-              />
-            </div>
-            <div class="contact__control">
-              <label for="message" class="visually-hidden">Message</label>
-              <textarea
-                name="message"
-                id="message"
-                cols="30"
-                rows="3"
-                placeholder="Message"
-                required
-              ></textarea>
-              <img
-                src="./assets/images/icon-invalid.svg"
-                alt=""
-                class="contact__invalid-icon"
-                width="24"
-                height="24"
-              />
-            </div>
-            <div class="contact__control align-right">
-              <button type="submit">Send Message</button>
-            </div>
-          </form>
         </div>
-        <img
-          class="contact__rings"
-          src="./assets/images/pattern-rings.svg"
-          alt=""
-          width="530"
-          height="129"
-        />
-      </section>
-    </main>
+        <div class="hero-stats">
+            <div class="stat-item">
+                <div class="stat-number">3.97</div>
+                <div class="stat-label">MS CGPA (UCSD)</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Projects</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">4</div>
+                <div class="stat-label">Internships</div>
+            </div>
+        </div>
+    </section>
 
-    <footer class="footer bg-less-dark">
-      <h2 class="visually-hidden">Footer</h2>
-      <div class="wrapper">
-        <nav class="header__nav">
-          <h2 class="visually-hidden">Navigation</h2>
-          <a href="/" class="header__home">
-            ViroopakshC
-            <span class="visually-hidden">(to home page)</span>
-          </a>
-          <a href="https://github.com/VIROOPAKSHC" class="header__social">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="25"
-              height="24"
-              aria-labelledby="socialGitHub"
-              role="img"
-            >
-              <title id="socialGitHub">GitHub</title>
-              <path
-                fill="#FFF"
-                fill-rule="evenodd"
-                d="M12.304 0C5.506 0 0 5.506 0 12.304c0 5.444 3.522 10.042 8.413 11.672.615.108.845-.261.845-.584 0-.292-.015-1.261-.015-2.291-3.091.569-3.891-.754-4.137-1.446-.138-.354-.738-1.446-1.261-1.738-.43-.23-1.046-.8-.016-.815.97-.015 1.661.892 1.892 1.261 1.107 1.86 2.876 1.338 3.584 1.015.107-.8.43-1.338.784-1.646-2.738-.307-5.598-1.368-5.598-6.074 0-1.338.477-2.446 1.26-3.307-.122-.308-.553-1.569.124-3.26 0 0 1.03-.323 3.383 1.26.985-.276 2.03-.415 3.076-.415 1.046 0 2.092.139 3.076.416 2.353-1.6 3.384-1.261 3.384-1.261.676 1.691.246 2.952.123 3.26.784.861 1.26 1.953 1.26 3.307 0 4.721-2.875 5.767-5.613 6.074.446.385.83 1.123.83 2.277 0 1.645-.015 2.968-.015 3.383 0 .323.231.708.846.584a12.324 12.324 0 0 0 8.382-11.672C24.607 5.506 19.101 0 12.304 0Z"
-              />
-            </svg>
-          </a>
-          
-          <a href="https://www.linkedin.com/in/viroopaksh-chekuri-9997301a7/" class="header__social">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="25"
-              height="24"
-              aria-labelledby="socialLinkedIn"
-              role="img"
-            >
-              <title id="socialLinkedIn">LinkedIn</title>
-              <path
-                fill="#FFF"
-                fill-rule="evenodd"
-                d="M5.551 3.304c-1.14 0-2.067.926-2.067 2.064 0 1.14.928 2.066 2.067 2.066a2.066 2.066 0 0 0 0-4.13ZM3.767 8.998v11.453h3.562L7.33 8.998H3.767Zm5.798 0V20.45l3.554.002.002-5.668c0-1.454.253-2.941 2.132-2.941 1.851 0 1.851 1.755 1.851 3.036v5.571l3.559-.001v-6.28c0-2.834-.517-5.457-4.27-5.457-1.763 0-2.916.997-3.368 1.85h-.05V8.997h-3.41ZM22.435 24H1.982c-.976 0-1.77-.777-1.77-1.732V1.731C.212.776 1.006 0 1.982 0h20.453c.98 0 1.777.776 1.777 1.73v20.538c0 .955-.797 1.732-1.777 1.732Z"
-              />
-            </svg>
-          </a>
-          
-        </nav>
-      </div>
+    <section id="experience">
+        <h2 class="section-title">Experience</h2>
+        <div class="experience-grid">
+            <div class="experience-card">
+                <div class="experience-header">
+                    <div>
+                        <h3 class="experience-title">Software Engineer Intern</h3>
+                        <div class="experience-company">Artemis Life Sciences · San Diego, CA</div>
+                    </div>
+                    <div class="experience-date">Jul 2025 – Sep 2025</div>
+                </div>
+                <div class="experience-tagline">
+                    Built AI-powered FDA regulatory system processing 3,000+ documents with RAG and vector search
+                </div>
+                <ul>
+                    <li>Built a large-scale FDA regulatory intelligence system by implementing PDF chunking (3,000+ documents) and metadata extraction pipelines using OpenAI models</li>
+                    <li>Designed and deployed Pinecone-based vectorized indexing for both PDF-derived content and heterogeneous JSON datasets from multiple FDA databases</li>
+                    <li>Developed an interactive Streamlit-powered chat interface integrated with GPT-5.1 and RAG-system, accelerating medical device submission drafting across 15+ categories</li>
+                </ul>
+                <div class="tech-tags">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">OpenAI</span>
+                    <span class="tech-tag">Pinecone</span>
+                    <span class="tech-tag">Streamlit</span>
+                    <span class="tech-tag">RAG</span>
+                    <span class="tech-tag">AWS S3</span>
+                    <span class="tech-tag">GPT-5.1</span>
+                </div>
+            </div>
+
+            <div class="experience-card">
+                <div class="experience-header">
+                    <div>
+                        <h3 class="experience-title">Research Assistant</h3>
+                        <div class="experience-company">CAIDA, SDSC · UC San Diego</div>
+                    </div>
+                    <div class="experience-date">May 2025 – Jul 2025</div>
+                </div>
+                <div class="experience-tagline">
+                    Advanced LLM research extracting structured metadata from 30+ papers using transformer models
+                </div>
+                <ul>
+                    <li>Conducted large-scale analysis on 30+ scientific research papers using transformer-based LLMs (LlaMA3, DeepSeek, Gemma) to extract structured metadata</li>
+                    <li>Formulated and evaluated multi-shot prompting strategies, including few-shot, retrieval-augmented, and context-aware techniques</li>
+                    <li>Built end-to-end pipelines for benchmarking LLM-driven metadata extraction models supporting reproducible internet measurement research</li>
+                </ul>
+                <div class="tech-tags">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">LlaMA3</span>
+                    <span class="tech-tag">DeepSeek</span>
+                    <span class="tech-tag">Gemma</span>
+                    <span class="tech-tag">NLP</span>
+                    <span class="tech-tag">RAG</span>
+                    <span class="tech-tag">Transformers</span>
+                </div>
+            </div>
+
+            <div class="experience-card">
+                <div class="experience-header">
+                    <div>
+                        <h3 class="experience-title">Machine Learning Researcher</h3>
+                        <div class="experience-company">IIT Madras</div>
+                    </div>
+                    <div class="experience-date">Apr 2023 – Sep 2023</div>
+                </div>
+                <div class="experience-tagline">
+                    Created music analysis ML model achieving 90.3% accuracy on 6,500+ Carnatic percussion samples
+                </div>
+                <ul>
+                    <li>Performed research on stroke identification in Carnatic music concerts, specializing in Mridangam analysis</li>
+                    <li>Developed a Random Forest classifier achieving 90.3% accuracy on 6500+ single-stroke audio samples by extracting 8 time-frequency features</li>
+                    <li>Led data preprocessing and feature engineering efforts contributing to real-time transcription for South Indian classical percussion</li>
+                </ul>
+                <div class="tech-tags">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">TensorFlow</span>
+                    <span class="tech-tag">Essentia</span>
+                    <span class="tech-tag">Librosa</span>
+                    <span class="tech-tag">Scikit-Learn</span>
+                    <span class="tech-tag">Signal Processing</span>
+                </div>
+            </div>
+
+            <div class="experience-card">
+                <div class="experience-header">
+                    <div>
+                        <h3 class="experience-title">NLP Engineer Intern</h3>
+                        <div class="experience-company">Willings Inc. · Tokyo, Japan (Remote)</div>
+                    </div>
+                    <div class="experience-date">Jun 2022 – Jul 2022</div>
+                </div>
+                <div class="experience-tagline">
+                    Delivered production NLP system classifying resumes with 85% accuracy in 6 weeks
+                </div>
+                <ul>
+                    <li>Built a resume categorization system using BERT and spaCy, classifying resumes into 8 job categories with 85% accuracy</li>
+                    <li>Designed and deployed an OpenAPI-based endpoint to support real-time job category retrieval</li>
+                    <li>Collaborated in cross-functional team to deliver production-ready solution within 6-week timeline</li>
+                </ul>
+                <div class="tech-tags">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">BERT</span>
+                    <span class="tech-tag">SpaCy</span>
+                    <span class="tech-tag">NLP</span>
+                    <span class="tech-tag">OpenAPI</span>
+                    <span class="tech-tag">Scikit-Learn</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2 class="section-title">Projects</h2>
+        
+        <div class="category-tabs">
+            <button class="category-tab active" data-category="all">All Projects</button>
+            <button class="category-tab" data-category="llm">LLM & GenAI</button>
+            <button class="category-tab" data-category="ml">Machine Learning</button>
+            <button class="category-tab" data-category="data">Data Engineering</button>
+            <button class="category-tab" data-category="web">Web Development</button>
+        </div>
+
+        <div class="projects-container">
+            <!-- LLM & GenAI Projects -->
+            <div class="project-item active" data-categories="all llm">
+                <div class="project-header">
+                    <div class="project-info">
+                        <h3>Document Q&A with RAG using Fine-Tuned LLaMA-2</h3>
+                    </div>
+                    <div class="project-icon">🤖</div>
+                </div>
+                <p class="project-description">
+                    Built a Retrieval-Augmented Generation pipeline with a fine-tuned 4-bit quantized LLaMA-2 model using Low-Rank Adaptation (LoRA). 
+                    Integrated FAISS vector database for efficient document retrieval and similarity search. Optimized memory and retrieval latency 
+                    by combining dynamic batching, cosine learning rate scheduling, and quantization-aware inference.
+                </p>
+                <div class="tech-tags">
+                    <span class="tech-tag">LLaMA-2</span>
+                    <span class="tech-tag">RAG</span>
+                    <span class="tech-tag">FAISS</span>
+                    <span class="tech-tag">LoRA</span>
+                    <span class="tech-tag">HuggingFace</span>
+                    <span class="tech-tag">PEFT</span>
+                    <span class="tech-tag">BitsAndBytes</span>
+                </div>
+                <div class="project-links">
+                    <a href="#" class="project-link">View Project →</a>
+                    <a href="#" class="project-link">View Code →</a>
+                </div>
+            </div>
+
+            <div class="project-item active" data-categories="all data">
+                <div class="project-header">
+                    <div class="project-info">
+                        <h3>Real-Time Fraud Detection Pipeline</h3>
+                    </div>
+                    <div class="project-icon">⚡</div>
+                </div>
+                <p class="project-description">
+                    Built a real-time fraud detection system using Apache Kafka, PySpark Structured Streaming, and FastAPI, capable of identifying 
+                    fraudulent transactions with over 95% precision on an imbalanced dataset. Trained a class-imbalance-aware XGBoost model and 
+                    deployed it as a lightweight microservice using Docker, achieving sub-50ms prediction latency. Scalable up to 1M+ transactions/day.
+                </p>
+                <div class="tech-tags">
+                    <span class="tech-tag">Apache Kafka</span>
+                    <span class="tech-tag">PySpark</span>
+                    <span class="tech-tag">FastAPI</span>
+                    <span class="tech-tag">XGBoost</span>
+                    <span class="tech-tag">Docker</span>
+                    <span class="tech-tag">MLOps</span>
+                </div>
+                <div class="project-links">
+                    <a href="#" class="project-link">View Project →</a>
+                    <a href="#" class="project-link">View Code →</a>
+                </div>
+            </div>
+
+            <div class="project-item active" data-categories="all ml">
+                <div class="project-header">
+                    <div class="project-info">
+                        <h3>LearningSnake - Deep Reinforcement Learning</h3>
+                    </div>
+                    <div class="project-icon">🐍</div>
+                </div>
+                <p class="project-description">
+                    Developed a Reinforcement Learning agent using Deep Q-Network (DQN) architecture to play and improve performance in a custom-built 
+                    Snake game environment. Designed and trained a Neural network model with checkpointing, experience replay and fine-tuning strategies, 
+                    enabling the agent to achieve superhuman performance with an average high score of 150 across 120 games.
+                </p>
+                <div class="tech-tags">
+                    <span class="tech-tag">PyTorch</span>
+                    <span class="tech-tag">Deep Q-Learning</span>
+                    <span class="tech-tag">Numpy</span>
+                    <span class="tech-tag">Matplotlib</span>
+                    <span class="tech-tag">Reinforcement Learning</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/VIROOPAKSHC/Skill-projects/tree/main/Learning-Snake#readme" class="project-link">View Project →</a>
+                    <a href="https://github.com/VIROOPAKSHC/Skill-projects/tree/main/Learning-Snake" class="project-link">View Code →</a>
+                </div>
+            </div>
+
+            <div class="project-item active" data-categories="all ml">
+                <div class="project-header">
+                    <div class="project-info">
+                        <h3>Obesity Risk Prediction Dashboard</h3>
+                    </div>
+                    <div class="project-icon">📊</div>
+                </div>
+                <p class="project-description">
+                    Built and deployed an interactive Streamlit web application to predict obesity risk based on 14 health and lifestyle features using 
+                    Machine Learning models with dynamic hyperparameter tuning. Enhanced model explainability with LIME, SHAP, and PDPBox to visualize 
+                    feature impact and provide transparent health risk insights for end users.
+                </p>
+                <div class="tech-tags">
+                    <span class="tech-tag">Streamlit</span>
+                    <span class="tech-tag">XGBoost</span>
+                    <span class="tech-tag">SHAP</span>
+                    <span class="tech-tag">LIME</span>
+                    <span class="tech-tag">PDPBox</span>
+                    <span class="tech-tag">Scikit-Learn</span>
+                </div>
+                <div class="project-links">
+                    <a href="#" class="project-link">View Project →</a>
+                    <a href="#" class="project-link">View Code →</a>
+                </div>
+            </div>
+
+            <div class="project-item active" data-categories="all data web">
+                <div class="project-header">
+                    <div class="project-info">
+                        <h3>Streamboard - Data Visualization Dashboard</h3>
+                    </div>
+                    <div class="project-icon">📈</div>
+                </div>
+                <p class="project-description">
+                    Interactive data visualization dashboard built with Streamlit for exploratory data analysis and ML model deployment. 
+                    Features comprehensive data analysis tools, machine learning model integration, and dynamic visualization capabilities 
+                    using Pandas, XGBoost, and Seaborn for professional-grade data insights.
+                </p>
+                <div class="tech-tags">
+                    <span class="tech-tag">Streamlit</span>
+                    <span class="tech-tag">Pandas</span>
+                    <span class="tech-tag">XGBoost</span>
+                    <span class="tech-tag">Seaborn</span>
+                    <span class="tech-tag">Data Visualization</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://blackmoonbear-streamboard.streamlit.app/" class="project-link">View Live →</a>
+                    <span class="tech-tag">Matplotlib</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/VIROOPAKSHC/StreamBoard/" class="project-link">View Code →</a>
+                </div>
+            </div>
+
+            <div class="project-item active" data-categories="all web">
+                <div class="project-header">
+                    <div class="project-info">
+                        <h3>To-Do-Stream - Task Management App</h3>
+                    </div>
+                    <div class="project-icon">✅</div>
+                </div>
+                <p class="project-description">
+                    A web-based to-do list application created using Streamlit and SQLite3. Features a clean, intuitive interface for task management 
+                    with persistent storage using SQLite database. Implements CRUD operations for managing tasks efficiently with real-time updates 
+                    and responsive design for seamless user experience.
+                </p>
+                <div class="tech-tags">
+                    <span class="tech-tag">Streamlit</span>
+                    <span class="tech-tag">SQLite3</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Database</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/VIROOPAKSHC/To-Do-Stream/blob/main/README.md" class="project-link">View Project →</a>
+                    <a href="https://github.com/VIROOPAKSHC/To-Do-Stream/" class="project-link">View Code →</a>
+                </div>
+            </div>
+
+            <div class="project-item active" data-categories="all web">
+                <div class="project-header">
+                    <div class="project-info">
+                        <h3>Placement-Gyaan Portal</h3>
+                    </div>
+                    <div class="project-icon">🎓</div>
+                </div>
+                <p class="project-description">
+                    A comprehensive placement preparation portal built with Python-Flask backend, featuring real-time communication via sockets, 
+                    RESTful API integration, and responsive frontend using HTML, CSS, and JavaScript. Includes YAML-based configuration management 
+                    and structured data handling for student placement resources and company information.
+                </p>
+                <div class="tech-tags">
+                    <span class="tech-tag">Python-Flask</span>
+                    <span class="tech-tag">Sockets</span>
+                    <span class="tech-tag">YAML</span>
+                    <span class="tech-tag">API</span>
+                    <span class="tech-tag">HTML</span>
+                    <span class="tech-tag">CSS</span>
+                    <span class="tech-tag">JavaScript</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/VIROOPAKSHC/placement-gyaan" class="project-link">View Code →</a>
+                </div>
+            </div>
+
+            <div class="project-item active" data-categories="all web">
+                <div class="project-header">
+                    <div class="project-info">
+                        <h3>Flask Flash Cards</h3>
+                    </div>
+                    <div class="project-icon">🎴</div>
+                </div>
+                <p class="project-description">
+                    Full-stack flashcard application built with Python-Flask backend and Vue.js frontend. Features asynchronous task processing 
+                    with Celery, YAML-based configuration, and a modern responsive interface. Implements spaced repetition algorithms and user 
+                    authentication for personalized learning experiences.
+                </p>
+                <div class="tech-tags">
+                    <span class="tech-tag">Python-Flask</span>
+                    <span class="tech-tag">Vue.js</span>
+                    <span class="tech-tag">Celery</span>
+                    <span class="tech-tag">HTML</span>
+                    <span class="tech-tag">CSS</span>
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">YAML</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/VIROOPAKSHC/Flash-Card-Project#readme" class="project-link">View Project →</a>
+                    <a href="https://github.com/VIROOPAKSHC/Flash-Card-Project" class="project-link">View Code →</a>
+                </div>
+            </div>
+
+            <div class="project-item active" data-categories="all data">
+                <div class="project-header">
+                    <div class="project-info">
+                        <h3>Opticals Data Analysis</h3>
+                    </div>
+                    <div class="project-icon">👓</div>
+                </div>
+                <p class="project-description">
+                    Comprehensive data analysis project using Jupyter Notebook to analyze optical sales and customer data. Implements statistical 
+                    analysis, data visualization, and predictive modeling techniques to derive actionable business insights. Features exploratory 
+                    data analysis, trend identification, and customer segmentation using Python data science stack.
+                </p>
+                <div class="tech-tags">
+                    <span class="tech-tag">Jupyter</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Data Analysis</span>
+                    <span class="tech-tag">Pandas</span>
+                    <span class="tech-tag">Matplotlib</span>
+                    <span class="tech-tag">Seaborn</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/VIROOPAKSHC/Opticals_Data_Analysis#readme" class="project-link">View Project →</a>
+                    <a href="https://github.com/VIROOPAKSHC/Opticals_Data_Analysis" class="project-link">View Code →</a>
+                </div>
+            </div>
+
+            <div class="project-item active" data-categories="all ml">
+                <div class="project-header">
+                    <div class="project-info">
+                        <h3>Conway's Game of Life</h3>
+                    </div>
+                    <div class="project-icon">🎮</div>
+                </div>
+                <p class="project-description">
+                    Implementation of Conway's Game of Life cellular automaton using Python and PyGame. Features interactive grid manipulation, 
+                    multiple pattern presets, adjustable simulation speed, and real-time visualization. Demonstrates computational thinking and 
+                    algorithmic problem-solving in simulating complex emergent behaviors from simple rules.
+                </p>
+                <div class="tech-tags">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">PyGame</span>
+                    <span class="tech-tag">Algorithms</span>
+                    <span class="tech-tag">Simulation</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/VIROOPAKSHC/GameOfLife#readme" class="project-link">View Project →</a>
+                    <a href="https://github.com/VIROOPAKSHC/GameOfLife/blob/main/GameOfLife/main.py" class="project-link">View Code →</a>
+                </div>
+            </div>
+
+            <div class="project-item active" data-categories="all ml">
+                <div class="project-header">
+                    <div class="project-info">
+                        <h3>Virtual Assistant</h3>
+                    </div>
+                    <div class="project-icon">🎙️</div>
+                </div>
+                <p class="project-description">
+                    Voice-activated virtual assistant built with Python using speech recognition and text-to-speech capabilities. Features include 
+                    web browsing automation, system command execution, information retrieval, and natural language processing. Integrates multiple 
+                    APIs for weather, news, and general queries with hands-free voice control.
+                </p>
+                <div class="tech-tags">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Speech Recognition</span>
+                    <span class="tech-tag">NLP</span>
+                    <span class="tech-tag">Web Browser</span>
+                    <span class="tech-tag">API Integration</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/VIROOPAKSHC/VirtualAssistant#readme" class="project-link">View Project →</a>
+                    <a href="https://github.com/VIROOPAKSHC/VirtualAssistant" class="project-link">View Code →</a>
+                </div>
+            </div>
+
+            <div class="project-item active" data-categories="all web">
+                <div class="project-header">
+                    <div class="project-info">
+                        <h3>Calculator Extension</h3>
+                    </div>
+                    <div class="project-icon">🔢</div>
+                </div>
+                <p class="project-description">
+                    Browser extension calculator built with vanilla HTML, CSS, and JavaScript. Features a clean, responsive interface with support 
+                    for basic arithmetic operations, keyboard shortcuts, and memory functions. Demonstrates proficiency in browser extension development 
+                    and front-end engineering fundamentals.
+                </p>
+                <div class="tech-tags">
+                    <span class="tech-tag">HTML</span>
+                    <span class="tech-tag">CSS</span>
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">Browser Extension</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/VIROOPAKSHC/Calculator-Extension/blob/main/README.md" class="project-link">View Project →</a>
+                    <a href="https://github.com/VIROOPAKSHC/Calculator-Extension" class="project-link">View Code →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-container" id="skillsContainer">
+            <!-- Skills will be dynamically generated -->
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-content">
+            <p>
+                I'm currently pursuing my Master's in Computer Science at UC San Diego and actively seeking opportunities 
+                in ML/AI engineering and research. Feel free to reach out!
+            </p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <strong>Email:</strong> 
+                    <a href="mailto:vchekuri@ucsd.edu">vchekuri@ucsd.edu</a>
+                </div>
+                <div class="contact-item">
+                    <strong>Phone:</strong> 
+                    <a href="tel:+16199539152">+1 (619) 953-9152</a>
+                </div>
+                <div class="contact-item">
+                    <strong>Location:</strong> 
+                    San Diego, CA, USA
+                </div>
+            </div>
+            <div class="cta-buttons" style="justify-content: center; margin-top: 2rem;">
+                <a href="https://github.com/VIROOPAKSHC" class="btn-primary">View GitHub</a>
+                <a href="https://www.linkedin.com/in/viroopaksh-chekuri-9997301a7/" class="btn-secondary">LinkedIn Profile</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Viroopaksh Chekuri. Built with passion for AI and innovation.</p>
     </footer>
-  </body>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Project category filtering
+        const categoryTabs = document.querySelectorAll('.category-tab');
+        const projectItems = document.querySelectorAll('.project-item');
+
+        categoryTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const category = tab.dataset.category;
+                
+                categoryTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                projectItems.forEach(item => {
+                    const categories = item.dataset.categories.split(' ');
+                    if (category === 'all' || categories.includes(category)) {
+                        item.classList.add('active');
+                    } else {
+                        item.classList.remove('active');
+                    }
+                });
+            });
+        });
+
+        // Dynamic Skills Generation
+        function generateSkills() {
+            const allTags = document.querySelectorAll('.tech-tag');
+            const skillsMap = {};
+
+            // Categorize skills
+            const categories = {
+                'Programming Languages': ['Python', 'JavaScript', 'HTML', 'CSS', 'SQL'],
+                'ML/AI Frameworks': ['PyTorch', 'TensorFlow', 'Scikit-Learn', 'XGBoost', 'BERT', 'Numpy'],
+                'Generative AI & LLMs': ['LLaMA-2', 'RAG', 'FAISS', 'LoRA', 'HuggingFace', 'PEFT', 'BitsAndBytes', 'OpenAI', 'Pinecone', 'GPT-5.1', 'DeepSeek', 'Gemma', 'Transformers'],
+                'Data Engineering': ['Apache Kafka', 'PySpark', 'Pandas', 'SQLite3', 'Database', 'Data Analysis', 'Data Visualization'],
+                'Web Development': ['Streamlit', 'Flask', 'Vue.js', 'FastAPI', 'Celery', 'API', 'Sockets', 'YAML'],
+                'Cloud & DevOps': ['AWS S3', 'Docker', 'MLOps'],
+                'Robotics & Computer Vision': ['ROS2', 'SLAM', 'EKF', 'Computer Vision', 'Robotics'],
+                'NLP & Audio Processing': ['NLP', 'SpaCy', 'Speech Recognition', 'Essentia', 'Librosa', 'Signal Processing'],
+                'Data Science Tools': ['Jupyter', 'Matplotlib', 'Seaborn', 'SHAP', 'LIME', 'PDPBox'],
+                'Other Technologies': ['PyGame', 'Browser Extension', 'Algorithms', 'Simulation', 'Deep Q-Learning', 'Reinforcement Learning']
+            };
+
+            // Collect all unique skills from project tags
+            const allSkills = new Set();
+            allTags.forEach(tag => {
+                allSkills.add(tag.textContent.trim());
+            });
+
+            // Organize skills into categories
+            Object.keys(categories).forEach(category => {
+                skillsMap[category] = [];
+                categories[category].forEach(skill => {
+                    if (allSkills.has(skill)) {
+                        skillsMap[category].push(skill);
+                    }
+                });
+            });
+
+            // Generate HTML
+            const container = document.getElementById('skillsContainer');
+            container.innerHTML = '';
+
+            Object.keys(skillsMap).forEach(category => {
+                if (skillsMap[category].length > 0) {
+                    const categoryDiv = document.createElement('div');
+                    categoryDiv.className = 'skill-category';
+                    
+                    const title = document.createElement('h3');
+                    title.textContent = category;
+                    categoryDiv.appendChild(title);
+                    
+                    const tagsDiv = document.createElement('div');
+                    tagsDiv.className = 'skill-tags';
+                    
+                    skillsMap[category].forEach(skill => {
+                        const tag = document.createElement('span');
+                        tag.className = 'skill-tag';
+                        tag.textContent = skill;
+                        tagsDiv.appendChild(tag);
+                    });
+                    
+                    categoryDiv.appendChild(tagsDiv);
+                    container.appendChild(categoryDiv);
+                }
+            });
+        }
+
+        // Initialize skills on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            generateSkills();
+        });
+
+        // Scroll animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.experience-card, .project-item, .skill-category').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
 </html>
+                    <a href="#" class="project-link">View Code →</a>
+                </div>
+            </div>
+
+            <!-- ML & AI Projects -->
+            <div class="project-item active" data-categories="all ml">
+                <div class="project-header">
+                    <div class="project-info">
+                        <h3>EKF-SLAM on Differential-Drive Robot</h3>
+                    </div>
+                    <div class="project-icon">🤖</div>
+                </div>
+                <p class="project-description">
+                    Developed and deployed an Extended Kalman Filter SLAM system on a Rubikpi mobile robot using wheel-odometry and AprilTag 
+                    range-bearing measurements in ROS2 Python. Implemented analytic Jacobians for motion and sensor models, state augmentation 
+                    for new landmarks, and achieved less than 3 cm landmark error with consistent loop closure.
+                </p>
+                <div class="tech-tags">
+                    <span class="tech-tag">ROS2</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">SLAM</span>
+                    <span class="tech-tag">EKF</span>
+                    <span class="tech-tag">Robotics</span>
+                    <span class="tech-tag">Computer Vision</span>
+                </div>
+                <div class="project-links">
+                    <a href="#" class="project-link">View Project →</a>
